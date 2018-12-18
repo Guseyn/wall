@@ -1,0 +1,48 @@
+{
+  "name": "wall",
+  "version": "1.0.0",
+  "description": "Quality checker for projects for browser js and Node.js, can be integrated in build process of Page, also can be as stand alone application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-executor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guseyn/wall.git"
+  },
+  "keywords": [
+    "static",
+    "analysis",
+    "test",
+    "coverage",
+    "mutation",
+    "test",
+    "coverage",
+    "integration",
+    "tests",
+    "unit",
+    "tests",
+    "page",
+    "cutie"
+  ],
+  "author": "guseyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guseyn/wall/issues"
+  },
+  "homepage": "https://github.com/Guseyn/wall#readme",
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "@cuties/assert": "^1.1.5",
+    "@cuties/cutie": "^1.4.4",
+    "@cuties/is": "^1.0.8",
+    "test-executor": "^1.1.2"
+  }
+}
