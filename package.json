@@ -4,7 +4,8 @@
   "description": "Quality checker for projects for browser js and Node.js, can be integrated in build process of Page, also can be as stand alone application.",
   "main": "index.js",
   "scripts": {
-    "test": "node test-executor"
+    "test": "node test-executor",
+    "coverage": "./node_modules/.bin/c8 node test-executor"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "nyc": "^13.1.0"
   },
   "dependencies": {
     "@cuties/assert": "^1.1.5",
