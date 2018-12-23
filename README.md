@@ -36,6 +36,8 @@ new ExecutedLint(process, './src').call()
 
 ```
 
+**Async call:** [executedLint](https://github.com/Guseyn/wall/blob/master/src/custom-calls/executedLint.js).
+
 ### ExecutedTestCoverage
 
 This async object represents the `process` where test coverage is executed.
@@ -55,7 +57,7 @@ File `test-executor` contains script that runs all your tests. You can use [this
 
 ### ExecutedTestCoverageCheck
 
-This async object represents the `process` where test coverage check is executed(after running tests via `ExecutedTestCoverage`). If coverage falls below a threshold(that can be configured via `ConfiguredTestCoverage`) the `process` fails.
+This async object represents the `process` where test coverage check is executed(after running tests via `ExecutedTestCoverage`). If coverage falls below a threshold (that can be configured via `ConfiguredTestCoverage`) the `process` fails.
 
 ```js
 new ExecutedTestCoverageCheck(
