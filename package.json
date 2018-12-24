@@ -1,6 +1,6 @@
 {
   "name": "@cuties/wall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quality checker for projects for browser js and Node.js, can be integrated in build process of Page, also can be as stand alone application.",
   "main": "index.js",
   "scripts": {
@@ -45,6 +45,6 @@
     "@cuties/assert": "^1.1.5",
     "@cuties/cutie": "^1.4.4",
     "@cuties/is": "^1.0.8",
-    "test-executor": "^1.1.2"
+    "test-executor": "^1.1.3"
   }
 }
