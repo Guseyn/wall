@@ -6,7 +6,11 @@
 
 ## Install
 
-`npm install @cuties/wall`
+`npm install @cuties/wall eslint nyc`
+
+### Init eslint
+
+`node_modules/.bin/eslint --init`
 
 ## Test
 
@@ -29,7 +33,7 @@ new ConfiguredTestCoverage(process, {
 
 ### ExecutedLint
 
-This async object represents the `process` where static analysis is executed. It uses this [configuration](https://github.com/Guseyn/wall/blob/master/.eslintrc.json).
+This async object represents the `process` where static analysis is executed.
 
 ```js
 new ExecutedLint(process, './src').call()
