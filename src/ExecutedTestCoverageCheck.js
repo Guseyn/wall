@@ -5,8 +5,8 @@ const executedTestCoverageCheck = require('./custom-calls/executedTestCoverageCh
 
 // Represented result is process
 class ExecutedTestCoverageCheck extends AsyncObject {
-  constructor (process) {
-    super(process)
+  constructor (process, options) {
+    super(process, options)
   }
 
   definedAsyncCall () {

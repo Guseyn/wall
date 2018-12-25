@@ -18,17 +18,6 @@
 
 ## Async objects
 
-### ConfiguredTestCoverage
-
-This async object represents the `process`, in which we can configure required test coverage percentages of *lines*, *functions* and *branches*.
-
-```js
-new ConfiguredTestCoverage(process, {
-  'lines': 100, 'functions': 100, 'branches': 100
-}).call()
-
-```
-
 **Async call:** [configuredTestCoverage](https://github.com/Guseyn/wall/blob/master/src/custom-calls/configuredTestCoverage.js).
 
 ### ExecutedLint
@@ -48,9 +37,7 @@ This async object represents the `process` where test coverage is executed.
 
 ```js
 new ExecutedTestCoverage(
-  new ConfiguredTestCoverage(process, {
-    'lines': 100, 'functions': 100, 'branches': 100
-  }), './test-executor.js'
+  process, './test-executor.js'
 ).call()
 
 ```
@@ -61,11 +48,12 @@ File `test-executor` contains script that runs all your tests. You can use [this
 
 ### ExecutedTestCoverageCheck
 
-This async object represents the `process` where test coverage check is executed(after running tests via `ExecutedTestCoverage`). If coverage falls below a threshold (that can be configured via `ConfiguredTestCoverage`) the `process` fails.
+This async object represents the `process` where test coverage check is executed(after running tests via `ExecutedTestCoverage`). If coverage falls below a threshold (that can be configured via `ConfiguredTestCoverage`) the `process` fails. You can configure required test coverage percentages of *lines*, *functions* and *branches* via options in params.
 
 ```js
 new ExecutedTestCoverageCheck(
-  new ExecutedTestCoverage(process, '/test-executor.js')
+  new ExecutedTestCoverage(process, '/test-executor.js'),
+  { lines: 100, functions: 100, branches: 100 }
 ).call()
 
 ```
@@ -93,7 +81,6 @@ For making your project more qualitative use following composition:
 ```js
 const {
   ExecutedLint,
-  ConfiguredTestCoverage,
   ExecutedTestCoverage,
   ExecutedTestCoverageCheck,
   ExecutedTestCoverageReport
@@ -103,12 +90,9 @@ new ExecutedLint(process, './src').after(
   new ExecutedTestCoverageCheck(
     new ExecutedTestCoverageReport(
       new ExecutedTestCoverage(
-        new ConfiguredTestCoverage(
-          process, { 'lines': 100, 'functions': 100, 'branches': 100 }
-        ),
-        './test-executor.js'
+        process, './test-executor.js'
       )
-    )
+    ), { 'lines': 100, 'functions': 100, 'branches': 100 }
   )
 ).call()
 

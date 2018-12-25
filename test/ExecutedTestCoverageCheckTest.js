@@ -1,8 +1,10 @@
 const { DeepEqualAssertion } = require('@cuties/assert')
-const { ExecutedTestCoverage, ExecutedTestCoverageCheck } = require('./../index')
+const { ExecutedTestCoverageCheck, ExecutedTestCoverage } = require('./../index')
 
 new DeepEqualAssertion(
-  new ExecutedTestCoverageCheck(
-    new ExecutedTestCoverage(process, './fake2/test/script-test')
+  new ExecutedTestCoverage(
+    new ExecutedTestCoverageCheck(process, {
+      'lines': 100, 'functions': 100, 'branches': 100
+    }), './fake/test/script-test'
   ), process
 ).call()
