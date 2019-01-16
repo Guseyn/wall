@@ -3,6 +3,7 @@ const { ExecutedTestCoverage, ExecutedTestCoverageReport } = require('./../index
 
 new DeepEqualAssertion(
   new ExecutedTestCoverageReport(
-    new ExecutedTestCoverage(process, './fake3/test/script-test')
+    new ExecutedTestCoverage(process, './fake3/test/script-test'),
+    'json-summary'
   ), process
 ).call()

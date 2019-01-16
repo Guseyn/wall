@@ -18,8 +18,6 @@
 
 ## Async objects
 
-**Async call:** [configuredTestCoverage](https://github.com/Guseyn/wall/blob/master/src/custom-calls/configuredTestCoverage.js).
-
 ### ExecutedLint
 
 This async object represents the `process` where static analysis is executed.
@@ -66,13 +64,12 @@ This async object represents the `process` where test coverage is reported (afte
 
 ```js
 new ExecutedTestCoverageReport(
-  new ExecutedTestCoverage(process, '/test-executor.js')
+  new ExecutedTestCoverage(process, '/test-executor.js'), 'json-summary'
 ).call()
 
 ```
 
-**Async call:** [executedTestCoverageReport](https://github.com/Guseyn/wall/blob/master/src/custom-calls/executedTestCoverageReport.js).
-
+**Async call:** [executedTestCoverageReport](https://github.com/Guseyn/wall/blob/master/src/custom-calls/executedTestCoverageReport.js). About format(default value is `text`) of report you can read [here](https://istanbul.js.org/docs/advanced/alternative-reporters/).
 
 ## Complete example
 
@@ -91,7 +88,7 @@ new ExecutedLint(process, './src').after(
     new ExecutedTestCoverageReport(
       new ExecutedTestCoverage(
         process, './test-executor.js'
-      )
+      ), 'json-summary'
     ), { 'lines': 100, 'functions': 100, 'branches': 100 }
   )
 ).call()
@@ -106,6 +103,34 @@ const executor = require('test-executor');
 executor('./test');
 
 ```
+
+### [test-executor library](https://github.com/Guseyn/node-test-executor)
+
+## Log total coverage (LoggedTotalCoverageByJsonSummary)
+
+If you use `json-summary` in `ExecutedTestCoverageReport`, then this async object generates report into `coverage/coverage-summary.json` file. And you can log in console total coverage numbers via `LoggedTotalCoverageByJsonSummary`, `ReadDataByPath`([cutie-fs](https://github.com/Guseyn/cutie-fs)) and `ParsedJson`([cutie-json](https://github.com/Guseyn/cutie-json)):
+
+```js
+const { ReadDataByPath } = require('@cuties/fs')
+const { ParsedJSON } = require('@cuties/json')
+const { ExecutedTestCoverage, ExecutedTestCoverageReport, LoggedTotalCoverageByJsonSummary } = require('./../index')
+
+new ExecutedTestCoverageReport(
+  new ExecutedTestCoverage(process, './fake3/test/script-test'),
+  'json-summary'
+).after(
+  new LoggedTotalCoverageByJsonSummary(
+    new ParsedJSON(
+      new ReadDataByPath('coverage/coverage-summary.json', { encoding: 'utf8' })
+    ), (linesPct, statementsPct, functionsPct, branchesPct) => {
+      return (linesPct + statementsPct + functionsPct + branchesPct) / 4
+    }
+  )
+).call()
+
+```
+
+First argument of `LoggedTotalCoverageByJsonSummary` is json that contains coverage numbers(lines, statements, functions, branches percentages), second one is a function that calculates total number (in that case we just take average value of coverage numbers).
 
 [npm-image]: https://img.shields.io/npm/v/@cuties/wall.svg
 [npm-url]: https://npmjs.org/package/@cuties/wall

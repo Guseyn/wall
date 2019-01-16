@@ -5,8 +5,8 @@ const executedTestCoverageReport = require('./custom-calls/executedTestCoverageR
 
 // Represented result is process
 class ExecutedTestCoverageReport extends AsyncObject {
-  constructor (process) {
-    super(process)
+  constructor (process, format) {
+    super(process, format || 'text')
   }
 
   definedAsyncCall () {
