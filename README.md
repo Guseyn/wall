@@ -108,7 +108,7 @@ executor('./test');
 
 ## Log total coverage (LoggedTotalCoverageByJsonSummary)
 
-If you use `json-summary` in `ExecutedTestCoverageReport`, then this async object generates report into `coverage/coverage-summary.json` file. And you can log in console total coverage numbers via `LoggedTotalCoverageByJsonSummary`, `ReadDataByPath`([cutie-fs](https://github.com/Guseyn/cutie-fs)) and `ParsedJson`([cutie-json](https://github.com/Guseyn/cutie-json)):
+If you use `json-summary` in `ExecutedTestCoverageReport`, then this async object generates report into `coverage/coverage-summary.json` file. And you can log to console total coverage numbers via `LoggedTotalCoverageByJsonSummary`, `ReadDataByPath`([cutie-fs](https://github.com/Guseyn/cutie-fs)) and `ParsedJson`([cutie-json](https://github.com/Guseyn/cutie-json)):
 
 ```js
 const { ReadDataByPath } = require('@cuties/fs')
@@ -131,6 +131,10 @@ new ExecutedTestCoverageReport(
 ```
 
 First argument of `LoggedTotalCoverageByJsonSummary` is json that contains coverage numbers(lines, statements, functions, branches percentages), second one is a function that calculates total number (in that case we just take average value of coverage numbers).
+
+Output would look like:
+
+`Total coverage: 100%`
 
 [npm-image]: https://img.shields.io/npm/v/@cuties/wall.svg
 [npm-url]: https://npmjs.org/package/@cuties/wall
