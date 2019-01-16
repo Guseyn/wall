@@ -2,8 +2,8 @@
 
 const spawn = require('child_process').spawn
 
-module.exports = (process, callback) => {
-  const testCoverage = spawn('./node_modules/.bin/nyc', ['report'], {
+module.exports = (process, format, callback) => {
+  const testCoverage = spawn('./node_modules/.bin/nyc', ['report', '--reporter', format], {
     stdio: [process.stdin, process.stdout, process.stderr]
   })
   testCoverage.on('close', (code) => {
