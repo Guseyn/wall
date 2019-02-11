@@ -116,7 +116,7 @@ const { ParsedJSON } = require('@cuties/json')
 const { ExecutedTestCoverage, ExecutedTestCoverageReport, LoggedTotalCoverageByJsonSummary } = require('./../index')
 
 new ExecutedTestCoverageReport(
-  new ExecutedTestCoverage(process, './fake3/test/script-test'),
+  new ExecutedTestCoverage(process, './test-executor.js'),
   'json-summary'
 ).after(
   new LoggedTotalCoverageByJsonSummary(
