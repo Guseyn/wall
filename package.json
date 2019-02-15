@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/Guseyn/wall#readme",
   "dependencies": {
-    "@cuties/cutie": "^1.6.3",
+    "@cuties/cutie": "^1.6.6",
     "eslint": "^5.13.0",
     "nyc": "^13.3.0",
     "test-executor": "^1.1.30"
