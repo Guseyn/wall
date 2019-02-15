@@ -26,7 +26,7 @@ deploy:
     tag_name: $TRAVIS_COMMIT_MESSAGE
     body: $BODY
     on:
-      repo: Guseyn/node-test-executor
+      repo: Guseyn/wall
       branch:
         - master
       condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
@@ -35,7 +35,7 @@ deploy:
     api_key:
       secure: ABUJTISTkTVxqJjwZKcrQWvd9akLvDHqnluDM2xYmpVW/xlY6LKX95Ikf/gX98jz9YFiYP4AEmuDJuaMvA30/dxAB1X0eJgYl2HygS5CpXUp0r2aNfmSSALgaoj+ZN8pjnCj7tAiyNSfEeXGVkHvPjWGnbDGxvsn7OzXSUuNMUU26b96y9wKUYTC2FeyZIPsD40LNcUAmiPwf6t7ffrUcE9+7DHzVNRrsVNzlYTcRlSBmjSjiGhrUdqGMugPJqHqy9aTlSpQzmTlEr2N5nTfSvvORBrIGGmF5AeK2+UF6ifyhMpq2twXPRXXb6+xC4McA1Cp1w51ZfpPMnmd8Ad1EgxmDsWwym2+u2Ci7jEhYV7ZGag1+kzpQkuQDUkxKNnmTgPOZjPmyyGELBCF+aI4RkPP5rIrec3xrO/pUsVJ2PYoED38sLSjyzz5nfuOX7Xy0bmNkAITBC1NRcdsql7xZnVAPjamEVhO2dw9iNZAFX6aqCNypmwOT8JYNCfO7e8gfeQEDgc71qJihDXtnUUQiM+6K9DZ1KIi+oeO/GKnFtBCkjpgDwGtuW4RffDlV42oQyaWHUBIFKgJqQf0rv1oEAu7DBJJxUImRvv4i41VBzxxQm98XtmgrWeWVQ7yl004SbQJt24nGkREAvSdP2aOOnkkgaYwBZgiNz4Hnx4l6G4=
     on:
-      repo: Guseyn/node-test-executor
+      repo: Guseyn/wall
       branch:
         - master
       condition: $TRAVIS_COMMIT_MESSAGE =~ ^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$
