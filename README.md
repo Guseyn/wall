@@ -6,7 +6,7 @@
 
 ## Install
 
-`npm install @cuties/wall eslint nyc`
+`npm install @cuties/wall`
 
 ### Init eslint
 
