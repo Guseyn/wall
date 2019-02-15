@@ -11,7 +11,7 @@ module.exports = (process, file, callback) => {
       console.log('\x1b[32m%s\x1b[0m', `lint has executed successfully: everything is ok for ${file}`)
       callback(null, process)
     } else {
-      callback(new Error(`lint failed with code ${code}`))
+      callback(new Error(`lint for ${file} failed with code ${code}`))
     }
   })
 }

@@ -2,11 +2,13 @@
 
 **Wall** is a tool that includes [static analysis](https://github.com/eslint/eslint) and [test coverage](https://github.com/istanbuljs/nyc). It was mainly made for [Page](https://github.com/Guseyn/page) and based on the [Async Tree Pattern](https://github.com/Guseyn/async-tree-patern/blob/master/Async_Tree_Patern.pdf).
 
-[![NPM Version][npm-image]][npm-url]
+[![NPM Version](https://img.shields.io/npm/v/@cuties/wall.svg)](https://npmjs.org/package/@cuties/wall)
+[![Build Status](https://travis-ci.org/Guseyn/wall.svg?branch=master)](https://travis-ci.org/Guseyn/wall)
+[![codecov](https://codecov.io/gh/Guseyn/wall/branch/master/graph/badge.svg)](https://codecov.io/gh/Guseyn/wall)
 
 ## Install
 
-`npm install @cuties/wall eslint nyc`
+`npm install @cuties/wall`
 
 ### Init eslint
 
@@ -15,6 +17,10 @@
 ## Test
 
 `npm test`
+
+## Build
+
+`npm run build`
 
 ## Async objects
 
@@ -51,7 +57,7 @@ This async object represents the `process` where test coverage check is executed
 ```js
 new ExecutedTestCoverageCheck(
   new ExecutedTestCoverage(process, '/test-executor.js'),
-  { lines: 100, functions: 100, branches: 100 }
+  { lines: 100, functions: 100, branches: 100, 'statements': 100 }
 ).call()
 
 ```
@@ -89,7 +95,7 @@ new ExecutedLint(process, './src').after(
       new ExecutedTestCoverage(
         process, './test-executor.js'
       ), 'json-summary'
-    ), { 'lines': 100, 'functions': 100, 'branches': 100 }
+    ), { lines: 100, functions: 100, branches: 100, statements: 100 }
   )
 ).call()
 
@@ -135,6 +141,3 @@ First argument of `LoggedTotalCoverageByJsonSummary` is json that contains cover
 Output would look like:
 
 `Total coverage: 100%`
-
-[npm-image]: https://img.shields.io/npm/v/@cuties/wall.svg
-[npm-url]: https://npmjs.org/package/@cuties/wall
