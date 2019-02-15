@@ -17,6 +17,7 @@ branches:
 before_deploy: |-
   log=$(git log $TRAVIS_COMMIT_RANGE --oneline)
   export BODY=$'**Change log:**<br/>'${log//$'\n'/<br/>}
+  export TAG=$'v'$TRAVIS_COMMIT_MESSAGE
 deploy:
   - provider: releases
     skip_cleanup: true
@@ -24,7 +25,7 @@ deploy:
       secure: hYm3aKpIA4vxI+kQMK6WTGSglefIxyffjBU6xeWa7tBiVJb4YrJHOiFMvI43zW3ypP/FeW16iWP57FADfxYxI3yyY8d19qY+HzBClFY6TWScz0nK6eX0mlbWkz9KxxtjVEar461k4lxYQA8L5lqnaH/AiG0vlZqycnWIV0sB+zQF1KINoSf7ZnSHpzkto36sQYEcamSlNp7aZ5fnHpyt70/ZLqwzf6qP+b6miIc91Cwcu1ahHPo1Tv0K8yznxDAKbmVEa4pxo/y3LT1IMsHDWtSbo6BVJQDbvp5pCGmL8nqlLwQsMMRjvhk5qcq0Yf/YK0MqJ9QIYGAn48tjl+RqeHanXd4NTqGGGRHOtS/1kBJuUfZz6qIvZwe6v3XwoYh32KAaiN/dc7PWMvZ6Sm44BqZaIxxfGvPDSvuEMy1nIBONk9OjS4uwoQg//tAzPZyB3TkQ67zscH1TKIiwk7A6lDTzwS/b2Un5jOlzkWY0WvGbw9KHlfx2tdZGYauHLurDs19/IU149H3H+srqhymB1JwrPkCMP2VVwyYqygi15vQ6zexiN7nja+5J816hmJgzCiEfdmxfAdFe9qatyrrGmqS3jL9gHzwxCxngSMF91VfMG9DZ4kPvvlf+DDLn7HyAEigxUopiZoHv7mcejEzbP57wIArtqA+shXh0eSyc+6U=
     file: README.md
     name: Release $TRAVIS_COMMIT_MESSAGE
-    tag_name: $'v'$TRAVIS_COMMIT_MESSAGE
+    tag_name: $TAG
     body: $BODY
     on:
       repo: Guseyn/wall
