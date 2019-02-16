@@ -3,8 +3,8 @@
 const { ExecutedTestCoverage } = require('./../index')
 
 class SafeExecutedTestCoverage extends ExecutedTestCoverage {
-  constructor (process, file) {
-    super(process, file)
+  constructor (process, files) {
+    super(process, files)
   }
 
   onErrorAndResult () {
