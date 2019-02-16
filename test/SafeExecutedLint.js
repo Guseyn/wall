@@ -3,8 +3,8 @@
 const { ExecutedLint } = require('./../index')
 
 class SafeExecutedLint extends ExecutedLint {
-  constructor (process, file) {
-    super(process, file)
+  constructor (process, ...files) {
+    super(process, ...files)
   }
 
   onErrorAndResult () {
