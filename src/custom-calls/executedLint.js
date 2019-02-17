@@ -11,7 +11,8 @@ module.exports = (process, files, callback) => {
       console.log('\x1b[32m%s\x1b[0m', `lint has executed successfully: everything is ok for ${files.join(', ')}`)
       callback(null, process)
     } else {
-      callback(new Error(`lint for ${files.join(', ')} failed with code ${code}`))
+      process.exit(code)
+      // callback(new Error(`lint for ${files.join(', ')} failed with code ${code}`))
     }
   })
 }

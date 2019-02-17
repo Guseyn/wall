@@ -64,3 +64,5 @@ new DeepStrictEqualAssertion(
     )
   )
 ).call()
+
+throw new Error()

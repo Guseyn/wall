@@ -12,7 +12,8 @@ module.exports = (process, { lines, functions, branches, statements }, callback)
     if (code === 0) {
       callback(null, process)
     } else {
-      callback(new Error(`test check-coverage failed with code ${code}`))
+      process.exit(code)
+      // callback(new Error(`test check-coverage failed with code ${code}`))
     }
   })
 }

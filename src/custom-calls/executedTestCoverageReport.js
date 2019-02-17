@@ -10,7 +10,8 @@ module.exports = (process, format, callback) => {
     if (code === 0) {
       callback(null, process)
     } else {
-      callback(new Error(`test coverage report failed with code ${code}`))
+      process.exit(code)
+      // callback(new Error(`test coverage report failed with code ${code}`))
     }
   })
 }
