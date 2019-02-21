@@ -13,7 +13,7 @@ class ReadDataByPath extends AsyncObject {
     });
   }
 
-  definedAsyncCall() {
+  asyncCall() {
     return fs.readFile;
   }
 
