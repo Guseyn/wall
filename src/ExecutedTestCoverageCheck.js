@@ -9,7 +9,7 @@ class ExecutedTestCoverageCheck extends AsyncObject {
     super(process, options || { lines: 90, functions: 90, branches: 90, statements: 90 })
   }
 
-  definedAsyncCall () {
+  asyncCall () {
     return executedTestCoverageCheck
   }
 }

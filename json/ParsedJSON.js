@@ -9,7 +9,7 @@ class ParsedJSON extends AsyncObject {
     super(string);
   }
 
-  definedSyncCall() {
+  syncCall() {
     return JSON.parse;
   }
 
